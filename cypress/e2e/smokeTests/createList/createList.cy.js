@@ -4,12 +4,14 @@ import createBoardActions from "../../../pageObjects/createBoard/actions.cy";
 import createBoardAssertions from "../../../pageObjects/createBoard/assertions.cy";
 import createListActions from "../../../pageObjects/createList/actions.cy";
 import createListAssertions from "../../../pageObjects/createList/assertions.cy";
+import deleteExsitingBoardActions from "../../../pageObjects/deleteBoard/actions.cy";
 
 
-const createBoardAction = new createBoardActions
-const createBoardAssertion = new createBoardAssertions
-const createListAction = new createListActions
-const createListAssertion = new createListAssertions
+const createBoardAction = new createBoardActions()
+const createBoardAssertion = new createBoardAssertions()
+const createListAction = new createListActions()
+const createListAssertion = new createListAssertions()
+const deleteExsitingBoardAction = new deleteExsitingBoardActions();
 const boardName = 'Testing Board';
 const listName = 'First List'
 
@@ -22,15 +24,18 @@ before(()=>{
     createBoardAction.clickOnCreateBoardButton();
     
 })
-Given('Open the board',()=>{
-    createBoardAssertion.checkBoardNameContainValue(boardName).checkBoardNameIsVisible();
-})
-When('type the list name in the list title input',()=>{
+When('Type the list name in the list title input',()=>{
     createListAction.typeInListTitleInputFeild(listName);
 })
-When('click Add list button',()=>{
+When('Click Add list button',()=>{
     createListAction.clickOnAddListButton();
 })
-Then('the list will be created successfuly',()=>{
+Then('The list will be created successfuly',()=>{
     createListAssertion.checkListNameContainValue(listName).checkListNameIsVisible();
+})
+
+after(()=>{
+    deleteExsitingBoardAction.clickOnShowMenuButton();
+    deleteExsitingBoardAction.chooseCloseBoardOption();
+    deleteExsitingBoardAction.clickOnCloseButton();
 })

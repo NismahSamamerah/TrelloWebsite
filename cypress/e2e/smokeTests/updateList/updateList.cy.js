@@ -8,13 +8,13 @@ import updateListActions from "../../../pageObjects/updateList/actions.cy";
 import updateListAssertions from "../../../pageObjects/updateList/assertions.cy";
 import deleteExsitingBoardActions from "../../../pageObjects/deleteBoard/actions.cy";
 
-const createBoardAction = new createBoardActions
-const createBoardAssertion = new createBoardAssertions
-const createListAction = new createListActions
-const createListAssertion = new createListAssertions
-const updateListAction = new updateListActions
-const updateListAssertion = new updateListAssertions
-const deleteExsitingBoardAction = new deleteExsitingBoardActions;
+const createBoardAction = new createBoardActions()
+const createBoardAssertion = new createBoardAssertions()
+const createListAction = new createListActions()
+const createListAssertion = new createListAssertions()
+const updateListAction = new updateListActions()
+const updateListAssertion = new updateListAssertions()
+const deleteExsitingBoardAction = new deleteExsitingBoardActions();
 const boardName = 'Testing Board';
 const listName = 'First List';
 const updatedListName = 'Second List'
@@ -34,7 +34,7 @@ before(()=>{
     createListAssertion.checkListNameContainValue(listName).checkListNameIsVisible();
 })
 
-When('Double Click on the list name input and Type the new name',()=>{
+When('Click on the list name input and Type the new name',()=>{
     cy.wait(3000)
     updateListAction.typeInListTitleInputFeild(updatedListName);
 })

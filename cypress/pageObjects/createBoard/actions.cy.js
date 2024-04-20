@@ -5,8 +5,8 @@ class createBoardActions {
         return this;
     }
     chooseCreateBoardOption(){
-        cy.findByTestId('header-create-board-button').click();
-        return this;
+        cy.findByTestId("header-create-board-button").click();
+    return this;
     }
     typeInBoardTitleInputFeild(boardName){
         cy.findByTestId('create-board-title-input').type(boardName);

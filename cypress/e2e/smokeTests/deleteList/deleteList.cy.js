@@ -8,13 +8,13 @@ import deleteListActions from "../../../pageObjects/deleteList/actions.cy";
 import deleteListAssertions from "../../../pageObjects/deleteList/assertions.cy";
 import deleteExsitingBoardActions from "../../../pageObjects/deleteBoard/actions.cy";
 
-const createBoardAction = new createBoardActions
-const createBoardAssertion = new createBoardAssertions
-const createListAction = new createListActions
-const createListAssertion = new createListAssertions
-const deleteListAction = new deleteListActions
-const deleteListAssertion = new deleteListAssertions
-const deleteExsitingBoardAction = new deleteExsitingBoardActions;
+const createBoardAction = new createBoardActions()
+const createBoardAssertion = new createBoardAssertions()
+const createListAction = new createListActions()
+const createListAssertion = new createListAssertions()
+const deleteListAction = new deleteListActions()
+const deleteListAssertion = new deleteListAssertions()
+const deleteExsitingBoardAction = new deleteExsitingBoardActions();
 const boardName = 'Testing Board';
 const listName = 'First List';
 

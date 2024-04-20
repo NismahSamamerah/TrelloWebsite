@@ -2,9 +2,11 @@
 import { Given, Then, When , Before , After } from "cypress-cucumber-preprocessor/steps";
 import createBoardActions from "../../../pageObjects/createBoard/actions.cy";
 import createBoardAssertions from "../../../pageObjects/createBoard/assertions.cy";
+import deleteExsitingBoardActions from "../../../pageObjects/deleteBoard/actions.cy";
 
-const createBoardAction = new createBoardActions
-const createBoardAssertion = new createBoardAssertions
+const createBoardAction = new createBoardActions()
+const createBoardAssertion = new createBoardAssertions()
+const deleteExsitingBoardAction = new deleteExsitingBoardActions();
 const boardName = 'Testing Board';
 
 Given('the user login in trello website',()=>{
@@ -27,4 +29,10 @@ When('click create button',()=>{
 })
 Then('the board will be created successfuly',()=>{
     createBoardAssertion.checkBoardNameContainValue(boardName).checkBoardNameIsVisible();
+})
+
+after(()=>{
+    deleteExsitingBoardAction.clickOnShowMenuButton();
+    deleteExsitingBoardAction.chooseCloseBoardOption();
+    deleteExsitingBoardAction.clickOnCloseButton();
 })
